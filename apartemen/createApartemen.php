@@ -21,7 +21,7 @@ if (
             $data['result'] = 'Data berhasil ditambahkan';
         } else {
             $data['status'] = 400;
-            $data['result'][] = 'Data Gagal Disimpan';
+            $data['result'] = 'Data Gagal Disimpan';
             // echo json_encode($data);
         }
     } else {
@@ -30,7 +30,7 @@ if (
     }
 }else {
     $data['status'] = 400;
-    $data['result'][] = 'Data Tidak Boleh Kosong';
+    $data['result'] = 'Data Tidak Boleh Kosong';
     // echo json_encode($data);
 }
 

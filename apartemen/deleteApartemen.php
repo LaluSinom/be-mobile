@@ -5,7 +5,7 @@ if (!empty($id)) {
     $sql = "DELETE FROM apartemen WHERE id='$id'";
     $query = mysqli_query($conn, $sql);
     $data['status'] = 200;
-    $data['result'][] = 'berhasil di hapus uwu';
+    $data['result'] = 'berhasil di hapus uwu';
 } else {
     $data['status'] = 400;
     $data['result'] = 'Data not found';

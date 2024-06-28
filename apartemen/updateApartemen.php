@@ -18,11 +18,11 @@ if (
     if (mysqli_affected_rows($conn) > 0) {
 
         $data['status'] = 200;
-        $data['result'][] = 'berhasil di update';
+        $data['result'] = 'berhasil di update';
     } else {
         # code...
         $data['status'] = 400;
-        $data['result'][] = 'Data Gagal diubah';
+        $data['result'] = 'Data Gagal diubah';
     }
 } else {
     $data['status'] = 400;
