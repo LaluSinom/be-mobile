@@ -1,4 +1,5 @@
 <?php
+
 include('../koneksi.php');
 $sql = "SELECT * FROM apartemen";
 $query = mysqli_query($conn, $sql);
