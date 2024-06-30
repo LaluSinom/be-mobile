@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 28, 2024 at 01:58 PM
+-- Generation Time: Jun 30, 2024 at 11:15 PM
 -- Server version: 8.0.30
--- PHP Version: 8.3.7
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,9 +39,7 @@ CREATE TABLE `apartemen` (
 --
 
 INSERT INTO `apartemen` (`id`, `nama_apartemen`, `alamat`, `gambar`) VALUES
-(1, 'Sinom apartemen', 'gerung lingsar', 'https://picsum.photos/id/1/200/300'),
-(2, 'Riko apartemen', 'Lingsar jalan pahlawan', 'asldjbasu'),
-(3, 'Riko apartemen 2', 'Lingsar jalan pahlawan', 'asldjbasu'),
+(1, 'Sinomderajat', 'gerung lingsar', 'https://picsum.photos/id/1/200/300'),
 (5, 'yuais', 'akjsbd', 'https://fastly.picsum.photos/id/731/200/200.jpg?hmac=f28-4BBT0mjsAystSYFss8hXUcYGvzvo054jqaZG4i0'),
 (6, 'anjer', 'auauau', 'gambar'),
 (7, 'asjkbd', 'akjsbd', 'ajsbjd'),
@@ -50,18 +48,25 @@ INSERT INTO `apartemen` (`id`, `nama_apartemen`, `alamat`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_wisata`
+-- Table structure for table `event`
 --
 
-CREATE TABLE `event_wisata` (
+CREATE TABLE `event` (
   `id` int NOT NULL,
-  `wisata_id` int NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `deskripsi` text,
-  `tanggal_mulai` date NOT NULL,
-  `tanggal_selesai` date NOT NULL,
-  `tanggal_ditambahkan` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `nama_event` varchar(255) NOT NULL,
+  `tanggal_event` varchar(255) NOT NULL,
+  `lokasi_event` varchar(255) NOT NULL,
+  `deskripsi` varchar(755) NOT NULL,
+  `gambar` varchar(755) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`id`, `nama_event`, `tanggal_event`, `lokasi_event`, `deskripsi`, `gambar`) VALUES
+(1, 'cosplay', '09-08-2024', 'gunung jae', 'blablabla', 'https://awsimages.detik.net.id/community/media/visual/2023/04/02/kak-ariela_43.jpeg?w=1200'),
+(3, '1', '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -105,6 +110,13 @@ CREATE TABLE `wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
+-- Dumping data for table `wisata`
+--
+
+INSERT INTO `wisata` (`id`, `nama_wisata`, `gambar`, `jam_layanan`, `jam_tutup`, `alamat`) VALUES
+(1, 'Gunung Jae ', 'https://img.okezone.com/content/2021/08/02/408/2449387/pesona-alam-gunung-jae-lombok-dulunya-bekas-tambang-kini-jadi-wisata-eksotis-rr6hQkHz89.JPG', '17', '17', 'Sedao');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -115,11 +127,10 @@ ALTER TABLE `apartemen`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `event_wisata`
+-- Indexes for table `event`
 --
-ALTER TABLE `event_wisata`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `wisata_id` (`wisata_id`);
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_users`
@@ -144,10 +155,10 @@ ALTER TABLE `apartemen`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `event_wisata`
+-- AUTO_INCREMENT for table `event`
 --
-ALTER TABLE `event_wisata`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `event`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
@@ -159,17 +170,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `wisata`
 --
 ALTER TABLE `wisata`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `event_wisata`
---
-ALTER TABLE `event_wisata`
-  ADD CONSTRAINT `event_wisata_ibfk_1` FOREIGN KEY (`wisata_id`) REFERENCES `wisata` (`id`);
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
